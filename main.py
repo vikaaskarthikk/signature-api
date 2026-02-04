@@ -5,6 +5,10 @@ import cv2
 
 app = FastAPI()
 
+@app.get("/")
+def health():
+    return {"status": "API running"}
+
 # Load your trained model
 model = tf.keras.models.load_model("signature_model.h5")  # use your .h5 file
 IMG_SIZE = 128
